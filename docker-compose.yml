@@ -3,22 +3,22 @@ version: "2.24"
 name: smm_shelter
 
 services:
-  # main-service:
-  #   container_name: main-service
-  #   restart: always
-  #   build: services
-  #   environment:
-  #     - POSTGRES_SHELTER_HOST=postgres-shelter-service
-  #     - POSTGRES_SHELTER_DB=shelter-service
-  #     - POSTGRES_USER=postgres
-  #     - POSTGRES_PASSWORD=postgres
-  #   depends_on:
-  #     - postgres-shelter-service
-  #   ports:
-  #     - 8002:8000
+  main-service:
+    container_name: main-service
+    restart: always
+    build: backend
+    environment:
+      - POSTGRES_SHELTER_HOST=postgres-shelter-service
+      - POSTGRES_SHELTER_DB=shelter-service
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    depends_on:
+      - postgres-shelter-service
+    ports:
+      - 8002:8000
 
 
-  postgres-pets-service:
+  postgres-shelter-service:
     container_name: postgres-shelter-service
     # restart: always
     image: postgres:16
@@ -27,8 +27,8 @@ services:
     environment:
       - POSTGRES_DB=shelter-service
       - POSTGRES_HOST_AUTH_METHOD=trust
-    ports:
-      - 5432:5433
-    command: 
-      - -p 5433
+    # ports:
+    #   - 5432:5433
+    # command: 
+    #   - -p 5433
 

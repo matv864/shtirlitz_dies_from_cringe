@@ -1,6 +1,6 @@
 FROM python:3.11.7
 
-WORKDIR /services
+WORKDIR /backend
 
 RUN apt-get install make
 COPY Makefile .
