@@ -15,7 +15,8 @@ jobs:
       with:
         version: v2.24.0 # defaults to 'latest'
         legacy: true    # will also install in PATH as `docker-compose`
-    - run: docker-compose up
+    - run: |
+        docker-compose up
     - name: start test
       run: pytest
     - run: echo "🍏 This job's status is ${{ job.status }}."
