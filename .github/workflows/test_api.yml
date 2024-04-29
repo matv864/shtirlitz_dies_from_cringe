@@ -6,15 +6,13 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: installation
-      uses: KengoTODA/actions-setup-docker-compose@v1
+    - uses: KengoTODA/actions-setup-docker-compose@v1
       with:
         version: '2.14.2'
+    - name: installation
       run: apt-get install make
-
     - name: run project
       run: make start
-
     - name: start test
       run: pytest
       run: echo "🍏 This job's status is ${{ job.status }}."
