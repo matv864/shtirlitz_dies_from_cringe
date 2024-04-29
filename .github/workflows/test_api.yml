@@ -15,5 +15,5 @@ jobs:
       run: make start
     - name: start test
       run: pytest
-      run: echo "🍏 This job's status is ${{ job.status }}."
+    - run: echo "🍏 This job's status is ${{ job.status }}."
    
