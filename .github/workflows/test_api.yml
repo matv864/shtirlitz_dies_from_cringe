@@ -1,18 +1,21 @@
 name: test_api
 
+on: [push]
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
     - name: installation
-    - uses: KengoTODA/actions-setup-docker-compose@v1
-    - run: apt-get install make
+      uses: KengoTODA/actions-setup-docker-compose@v1
+      with:
+        version: '2.14.2'
+      run: apt-get install make
 
     - name: run project
-    - run: make start
+      run: make start
 
     - name: start test
-    - run: pytest
-    - run: echo "🍏 This job's status is ${{ job.status }}."
+      run: pytest
+      run: echo "🍏 This job's status is ${{ job.status }}."
    
