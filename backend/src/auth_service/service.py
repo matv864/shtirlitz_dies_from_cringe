@@ -46,7 +46,7 @@ class Auth_service:
                 username=payload.username,
                 password=payload.password
             ):
-                raise HTTPException(status_code=400, detail="forbidden")
+                raise HTTPException(status_code=403, detail="forbidden")
 
         pair_tokens: Pair_tokens = await create_pair_tokens(payload.username)
         return Pair_tokens(**pair_tokens)

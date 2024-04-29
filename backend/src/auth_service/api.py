@@ -3,7 +3,7 @@ from fastapi.security import OAuth2PasswordBearer, OAuth2PasswordRequestForm
 
 from typing import Annotated
 
-from src.auth_service.service.auth import Auth_service
+from src.auth_service.service import Auth_service
 from src.auth_service.schemas import (
     Auth_shema,
     Access_token,
