@@ -9,10 +9,8 @@ jobs:
     - uses: KengoTODA/actions-setup-docker-compose@v1
       with:
         version: '2.14.2'
-    - name: installation
-      run: apt-get install make
     - name: run project
-      run: make start
+      run: docker-compose up
     - name: start test
       run: pytest
     - run: echo "🍏 This job's status is ${{ job.status }}."
