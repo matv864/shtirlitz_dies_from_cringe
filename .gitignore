@@ -1,7 +1,6 @@
-.venv
+.venv/
 .env
 pyvenv.cfg
-venv
 *.lock
 .DS_Store
 __pycache__/
@@ -12,3 +11,4 @@ lib64/
 python3.11/
 pets_media/
 .pytest_cache/
+storage/*

@@ -5,7 +5,7 @@ from typing import Annotated
 
 from src.auth_service.service.auth import Auth_service
 from src.auth_service.schemas import (
-    User_form,
+    Auth_shema,
     Access_token,
     Refresh_token,
     Pair_tokens
@@ -16,7 +16,7 @@ oauth2_scheme = OAuth2PasswordBearer(tokenUrl="/login")
 
 
 @auth_router.post("/registration", status_code=status.HTTP_201_CREATED)
-async def registration_user(payload: User_form):
+async def registration_user(payload: Auth_shema):
     return await Auth_service().create_user(payload)
 
 

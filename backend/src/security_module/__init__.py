@@ -4,7 +4,4 @@ from .jwt import (
     create_pair_tokens,
     verify_jwt_token
 )
-from .passwords import (
-    get_hashing_password,
-    match_password_with_hash
-)
+from .passwords import get_hashing_password

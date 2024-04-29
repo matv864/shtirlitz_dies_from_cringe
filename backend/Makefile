@@ -3,9 +3,6 @@ deps:
 	python -m pip install poetry
 	poetry install
 
-migrate:
-	poetry run python -m src.utils.migrate
-
 update-poetry:
 	poetry install
 

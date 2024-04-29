@@ -1,14 +1,16 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, field_validator
+
+from src.security_module import get_hashing_password
 
 
-class User_form(BaseModel):
+class Auth_shema(BaseModel):
     username: str
     password: str
 
-
-class Auth_record(BaseModel):
-    username: str
-    password: str
+    @field_validator('password')
+    @classmethod
+    def ensure_foobar(cls, password: str):
+        return get_hashing_password(password)
 
 
 class Its_me(BaseModel):

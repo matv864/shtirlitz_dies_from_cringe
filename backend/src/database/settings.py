@@ -8,22 +8,22 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_file=".env", extra="ignore")
 
-    POSTGRES_PETS_NAME_SERVICE: Optional[str] = None
-    POSTGRES_PETS_HOST: Optional[str] = None
-    POSTGRES_PETS_PORT: Optional[str] = None
-    POSTGRES_PETS_DB: str
+    POSTGRES_SHELTER_HOST: Optional[str] = None
+    POSTGRES_SHELTER_PORT: Optional[str] = None
+    POSTGRES_SHELTER_DB: str
     POSTGRES_USER: str
     POSTGRES_PASSWORD: str
 
     @cached_property
     def postgres_url(self):
-        if self.POSTGRES_PETS_HOST:
+        if self.POSTGRES_SHELTER_PORT:
             return f"postgresql+asyncpg://{self.POSTGRES_USER}:" + \
-                f"{self.POSTGRES_PASSWORD}@{self.POSTGRES_PETS_HOST}:" + \
-                f"{self.POSTGRES_PETS_PORT}/{self.POSTGRES_PETS_DB}"
+                f"{self.POSTGRES_PASSWORD}@{self.POSTGRES_SHELTER_HOST}:" + \
+                f"{self.POSTGRES_SHELTER_PORT}/{self.POSTGRES_SHELTER_DB}"
         return f"postgresql+asyncpg://{self.POSTGRES_USER}:" + \
             f"{self.POSTGRES_PASSWORD}@" + \
-            f"{self.POSTGRES_PETS_NAME_SERVICE}/{self.POSTGRES_PETS_DB}"
+            f"{self.POSTGRES_SHELTER_HOST}/" + \
+            f"{self.POSTGRES_SHELTER_DB}"
 
 
 @lru_cache
