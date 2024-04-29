@@ -8,7 +8,7 @@ jobs:
     steps:
     - uses: KengoTODA/actions-setup-docker-compose@v1
       with:
-        version: '2.14.2'
+        version: '2.24.0'
     - name: run project
       run: docker compose up
     - name: start test
