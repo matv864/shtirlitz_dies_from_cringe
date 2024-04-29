@@ -6,6 +6,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+    - name: check ls
+      run: ls -al
     - name: Install Compose
       uses: ndeloof/install-compose-action@v0.0.1
       with:
@@ -15,4 +17,3 @@ jobs:
     - name: start test
       run: pytest
     - run: echo "🍏 This job's status is ${{ job.status }}."
-   
